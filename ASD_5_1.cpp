@@ -1,12 +1,11 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
-void scal(vector<int>& dane, int lewy, int srodek, int prawy) {
+void scal(std::vector<int>& dane, int lewy, int srodek, int prawy) {
     int n1 = srodek - lewy + 1;
     int n2 = prawy - srodek;
 
-    vector<int> L(n1), P(n2);
+    std::vector<int> L(n1), P(n2);
 
     for (int i = 0; i < n1; i++) {
         L[i] = dane[lewy + i];
@@ -43,7 +42,7 @@ void scal(vector<int>& dane, int lewy, int srodek, int prawy) {
     }
 }
 
-void mergeSort(vector<int>& dane, int lewy, int prawy) {
+void mergeSort(std::vector<int>& dane, int lewy, int prawy) {
     if (lewy >= prawy) {
         return;
     }
@@ -54,17 +53,17 @@ void mergeSort(vector<int>& dane, int lewy, int prawy) {
 }
 
 int main() {
-    vector<int> elementy;
+    std::vector<int> elementy;
     int element;
 
-    while (cin >> element) {
+    while (std::cin >> element) {
         elementy.push_back(element);
     }
 
     mergeSort(elementy, 0, elementy.size() - 1);
 
     for (int i = 0; i < elementy.size(); i++) {
-        cout << elementy[i] << " ";
+        std::cout << elementy[i] << " ";
     }
 
     return 0;
